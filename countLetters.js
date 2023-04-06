@@ -9,6 +9,9 @@ const assertEqual = function(actual, expected) {
 const countLetters = function(strToCountLettersFrom) {
   let results = {};
   for (let letter of strToCountLettersFrom) {
+    if (letter === ' ') { // don't count spaces
+      continue;
+    }
     if (results[letter]) {
       results[letter]++;
     } else {
