@@ -8,7 +8,7 @@ const assertEqual = function(actual, expected) {
 };
 
 const head = function(arr) {
-  if(typeof arr === 'string') {
+  if (typeof arr === 'string') {
     return undefined;
   }
   return arr[0];
