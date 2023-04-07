@@ -24,30 +24,19 @@ const assertArraysEqual = function(actual, expected) {
   }
 };
 
-const map = function (arr, callback) {
-  // const newArr = [];
-  // for (let element of arr) {
-  //   let newElement = callback(element);
-  //   newArr.push(newElement);
-  // }
-  // return newArr;
-
-  // temporary code: 
-  // console.log('array: ', arr);
-  // console.log('callback: ', callback);
-
+const map = function(arr, callback) {
   const results = [];
   for (let item of arr) {
     results.push(callback(item));
   }
   return results;
-}
+};
 
 const words = ["ground", "control", "to", "major", "tom"];
 const results1 = map(words, word => word[0]);
 const results2 = map(words, word => word[1]);
 const results3 = map(words, word => word.length);
-const results4 = map(words, word => word[word.length-1]);
+const results4 = map(words, word => word[word.length - 1]);
 console.log(results1);
 
 assertArraysEqual(results1, ["g", "c", "t", "m", "t"]);
