@@ -26,14 +26,14 @@ const assertArraysEqual = function(actual, expected) {
 
 const takeUntil = function(array, callback) {
   let newArray = [];
-  for(let element of array) {
-    if(callback(element)) {
+  for (let element of array) {
+    if (callback(element)) {
       break;
     }
     newArray.push(element);
   }
   return newArray;
-}
+};
 
 const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];
 const results1 = takeUntil(data1, x => x < 0);
@@ -55,5 +55,5 @@ assertArraysEqual(results3, [1, 2, 3, 4, 5, 6]);
 console.log('---');
 
 const data4 = [2, 4, 6, 8, 10, 12, 14, 16, 17, 18, 20, 22, 24];
-const results4 = takeUntil(data4, x => x%2 === 1);
+const results4 = takeUntil(data4, x => x % 2 === 1);
 assertArraysEqual(results4, [2, 4, 6, 8, 10, 12, 14, 16]);
