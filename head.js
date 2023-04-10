@@ -1,6 +1,4 @@
 // FUNCTION IMPLEMENTATION
-const assertEqual = require('./assertEqual');
-
 const head = function(arr) {
   if (typeof arr === 'string') {
     return undefined;
