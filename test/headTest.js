@@ -1,9 +1,30 @@
+const assert = require('chai').assert;
 const head = require('../head');
-const assertEqual = require('../assertEqual'); // Why doesn't the code already run so the function is already declared?
+// const assertEqual = require('../assertEqual');
 
-assertEqual(head([5, 6, 7]), 5);
-assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");
-assertEqual(head(["The only element"]), "The only element");
-assertEqual(head([]), undefined);
-assertEqual(head("Not an array...or am I? Aren't strings static arrays? Nope, they're array-likes"), undefined);
-assertEqual(head(17), undefined);
+describe("#head", () => {
+  it("returns 1 for [1, 2, 3]", () => {
+    assert.strictEqual(head([1, 2, 3]), 1);
+  });
+  it("returns '5' for ['5']", () => {
+    assert.strictEqual(head(['5']), '5');
+  });
+  it("returns 5 for [5, 6, 7]", () => {
+    assert.strictEqual(head([5, 6, 7]), 5);
+  });
+  it("returns \"Hello\" for [\"Hello\", \"Lighthouse\", \"Labs\"]", () => {
+    assert.strictEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");
+  });
+  it("returns \"The only element\" for [\"The only element\"]", () => {
+    assert.strictEqual(head(["The only element"]), "The only element");
+  });
+  it("returns undefined for []", () => {
+    assert.strictEqual(head([]), undefined);
+  });
+  it("returns undefined for \"Not an array...or am I? Aren't strings static arrays? Nope, they're array-likes\"", () => {
+    assert.strictEqual(head("Not an array...or am I? Aren't strings static arrays? Nope, they're array-likes"), undefined);
+  });
+  it("returns undefined for 17", () => {
+    assert.strictEqual(head(17), undefined);
+  });
+});
