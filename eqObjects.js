@@ -42,7 +42,18 @@ const eqObjects = function(object1, object2) {
         return false;
       }
       // if they're equal, then they match, so move to checking the next key-value pair
-    } else if (object1Val !== object2Val) {
+      continue;
+    }
+    // if this point is reached, then the value is not an array. Check for equality of objects (will consider this to include functions as well)
+    if(typeof object1Val === 'object' && typeof object2Val === 'object') {
+      if(!eqObjects(object1Val, object2Val)) {
+        return false;
+      }
+      // if they're equal, then they match, so move to checking the next key-value pair
+      continue;
+    }
+    // this point is reached, which means both are not arrays, objects, or functions. So, compare primitives
+    if (object1Val !== object2Val) {
       return false;
     }
   }
@@ -62,3 +73,11 @@ assertEqual(eqObjects(multiColorShirtObject  , anotherMultiColorShirtObject), tr
 
 const longSleeveMultiColorShirtObject = { size: "medium", colors: ["red", "blue"], sleeveLength: "long" };
 assertEqual(eqObjects(multiColorShirtObject  , longSleeveMultiColorShirtObject), false); // => false
+
+assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true);
+assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false);
+assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false);
+assertEqual(eqObjects({ a: { z: 1, y: {x: 3} }, b: 2 }, { a: { z: 1, y: {x: 2} }, b: 2 }), false);
+assertEqual(eqObjects({ a: { z: 1, y: {x: 3} }, b: 2 }, { a: { z: 1, y: {x: 3} }, b: 2 }), true);
+assertEqual(eqObjects({ a: { z: 1, y: {x: 3, v: {w: 3}} }, b: 2 }, { a: { z: 1, y: {x: 3, v: {w: 4}} }, b: 2 }), false);
+assertEqual(eqObjects({ a: { z: 1, y: {x: 3, v: {w: 4}} }, b: 2 }, { a: { z: 1, y: {x: 3, v: {w: 4}} }, b: 2 }), true);
