@@ -7,8 +7,8 @@ const eqArrays = function(arr1, arr2) {
   // iterate through arr1 (and arr2, which has an equal length) and check for inequality of each element of arr1 to arr2's corresponding element, and return false if at least one inequality is found
   for (let i = 0; i < arr1.length; i++) {
     // It's okay for eqArrays to not return true for nested arrays or arrays of objects that are identical. We will save this "deeper" problem for another day.
-    if(Array.isArray(arr1[i]) && Array.isArray(arr2[i])) {
-      if(!eqArrays(arr1[i], arr2[i])) {
+    if (Array.isArray(arr1[i]) && Array.isArray(arr2[i])) {
+      if (!eqArrays(arr1[i], arr2[i])) {
         return false;
       }
       continue;

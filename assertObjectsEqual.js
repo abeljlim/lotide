@@ -1,4 +1,4 @@
-const assertEqual = function (actual, expected) {
+const assertEqual = function(actual, expected) {
   if (actual === expected) {
     console.log(`✅✅✅Assertion Passed: ${actual} === ${expected}`);
   } else {
@@ -6,7 +6,7 @@ const assertEqual = function (actual, expected) {
   }
 };
 
-const eqArrays = function (arr1, arr2) {
+const eqArrays = function(arr1, arr2) {
   // if the arrays' lengths differ, then return false
   if (arr1.length !== arr2.length) {
     return false;
@@ -26,7 +26,7 @@ const eqArrays = function (arr1, arr2) {
 
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
-const eqObjects = function (object1, object2) {
+const eqObjects = function(object1, object2) {
 
   // Eliminate the possibility of one object having more keys than the other
   if (Object.keys(object1).length !== Object.keys(object2).length) {
@@ -50,7 +50,7 @@ const eqObjects = function (object1, object2) {
 };
 
 // FUNCTION IMPLEMENTATION
-const assertObjectsEqual = function (actual, expected) {
+const assertObjectsEqual = function(actual, expected) {
   const inspect = require('util').inspect;
   if (eqObjects(actual, expected)) {
     console.log(`✅✅✅Assertion Passed: ${inspect(actual)} is equal to ${inspect(expected)}`);

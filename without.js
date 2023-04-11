@@ -1,4 +1,4 @@
-const eqArrays = function (arr1, arr2) {
+const eqArrays = function(arr1, arr2) {
   // if the arrays' lengths differ, then return false
   if (arr1.length !== arr2.length) {
     return false;
@@ -16,7 +16,7 @@ const eqArrays = function (arr1, arr2) {
   return true; // No inequalities found
 };
 
-const assertArraysEqual = function (actual, expected) {
+const assertArraysEqual = function(actual, expected) {
   if (eqArrays(actual, expected)) {
     console.log(`✅✅✅Assertion Passed: ${actual} is equal to ${expected}`);
   } else {
@@ -24,16 +24,16 @@ const assertArraysEqual = function (actual, expected) {
   }
 };
 
-const itemInArray = function (item, arr) {
-  for(let arrItem of arr) {
-    if(item === arrItem) {
+const itemInArray = function(item, arr) {
+  for (let arrItem of arr) {
+    if (item === arrItem) {
       return true;
     }
   }
   return false;
-}
+};
 
-const without = function (source, itemsToRemove) {
+const without = function(source, itemsToRemove) {
   // return a new array with only those elements from source that are not present in the itemsToRemove array
   let newArray = [];
   for (let sourceElem of source) {
@@ -45,7 +45,7 @@ const without = function (source, itemsToRemove) {
 
   // It's okay for without to not function correctly when using nested arrays or arrays of objects. We will save this "deeper" problem for another day.
   return newArray;
-}
+};
 
 assertArraysEqual(without([1, 2, 3], [1]), [2, 3]);
 assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"]), ["1", "2"]);

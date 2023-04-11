@@ -45,8 +45,8 @@ const eqObjects = function(object1, object2) {
       continue;
     }
     // if this point is reached, then the value is not an array. Check for equality of objects (will consider this to include functions as well)
-    if(typeof object1Val === 'object' && typeof object2Val === 'object') {
-      if(!eqObjects(object1Val, object2Val)) {
+    if (typeof object1Val === 'object' && typeof object2Val === 'object') {
+      if (!eqObjects(object1Val, object2Val)) {
         return false;
       }
       // if they're equal, then they match, so move to checking the next key-value pair
